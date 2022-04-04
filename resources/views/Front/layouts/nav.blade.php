@@ -23,7 +23,7 @@
 
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto {{ request()->is("home")?'active':'' }}" href="{{ route('front.home') }}">Home</a></li>
+                    <li><a class="nav-link scrollto {{ request()->is("home")?'active':'' }}" href="{{ route('front.home') }}">Home2</a></li>
                     <li><a class="nav-link scrollto {{ request()->is("about")?'active':'' }}"  href="{{ route('front.about') }}">About</a></li>
                     <li><a class="nav-link scrollto {{ request()->is("product")?'active':'' }}" href="{{ route('front.product') }}">Products</a></li>
                     <li><a class="nav-link scrollto {{ request()->is("career")?'active':'' }}" href="{{ route('front.career') }}">Careers</a></li>
