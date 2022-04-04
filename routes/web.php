@@ -33,6 +33,8 @@ Route::post('login', [AuthenticatedSessionController::class, 'store'])
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 Route::get('admin', [LoginController::class,'index'])->middleware("guest");
+
+//login
 Route::get('login', [LoginController::class,'index'])->middleware("guest");
 
 Route::group(['middleware'=>'auth','prefix' => 'admin','as'=>'admin.'],function(){
