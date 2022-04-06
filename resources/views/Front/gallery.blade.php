@@ -14,38 +14,17 @@
             <div class="container-fluid">
                 <div class="row g-0">
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="{{ asset('storage/assets/img/gallery/gallery-1.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
-                            </a>
+                    @foreach ($gallery as $_gallery)
+                        <div class="col-lg-3 col-md-6">
+                            <div class="gallery-item">
+                                <a href="{{ asset("storage/$_gallery->images") }}" class="galelry-lightbox">
+                                    <img src="{{ asset("storage/$_gallery->images") }}" alt="" class="img-fluid">
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="{{ asset('storage/assets/img/gallery/gallery-2.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-7.jpg') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="{{ asset('storage/assets/img/gallery/gallery-3.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-3.jpg') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="{{ asset('storage/assets/img/gallery/gallery-4.jpg') }}" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-4.jpg') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
+                    
 
 
 

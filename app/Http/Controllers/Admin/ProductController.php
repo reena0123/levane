@@ -10,9 +10,11 @@ use Auth;
 
 class ProductController extends Controller
 {
-    public function __construct(private $product = new Product)
-    {
+    private Product $product;
 
+    public function __construct(Product $product)
+    {
+        $this->product = $product;
     }
     /**
      * Display a listing of the resource.
@@ -21,7 +23,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = product::get();
+        $product = Product::get();
         return view('Admin.products.view', compact('product'));
     }
 

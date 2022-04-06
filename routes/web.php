@@ -12,6 +12,10 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\CareerController as AdminCareerController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +41,7 @@ Route::get('admin', [LoginController::class,'index'])->middleware("guest");
 //login
 Route::get('login', [LoginController::class,'index'])->middleware("guest");
 
+
 Route::group(['middleware'=>'auth','prefix' => 'admin','as'=>'admin.'],function(){
 
     Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
@@ -44,6 +49,11 @@ Route::group(['middleware'=>'auth','prefix' => 'admin','as'=>'admin.'],function(
      /*---Product--*/
 
     Route::resource('product', AdminProductController::class);
+
+    Route::resource('blog', AdminBlogController::class);
+    Route::resource('career', AdminCareerController::class);
+    Route::resource('contact', AdminContactController::class);
+    Route::resource('gallery', AdminGalleryController::class);
 });
 
 /*---front route list--*/

@@ -5,7 +5,7 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Add Products</h4>
+                            <h4>Edit Blogs</h4>
                             
                         </div>
                     </div>
@@ -25,15 +25,25 @@
                             
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form action="{{ route('admin.product.store')}}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.blog.update', $blog->id)}}" method="post" enctype="multipart/form-data">
                                     	@csrf
+                                        @method('PUT')
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                         <div class="row">
                                             <div class="col-sm-6">
-                                            	<label class="">Title</label>
-                                                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}">
+                                            	<label class="">Name</label>
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $blog->name) }}">
 
-                                                @error('title')
-												<div class="text-danger">{{ $message }}</div>
+                                                @error('name')
+												<div class="invalid-feedback">{{ $message }}</div>
 												@enderror
 
                                             </div>
@@ -41,48 +51,39 @@
                                             <div class="col-sm-6">
                                                 <label class="">Is Featured</label>
                                                 <select id="inputState" name="is_featured" class="form-control" required>
+
                                                     <option selected="">Choose...</option>
-                                                    <option value="0">No</option>
-                                                    <option value="1">Yes</option>
+
+                                                    <option value="0"{{ $blog->is_featured==0 ? 'selected':'' }}>No</option>
+
+                                                    <option value="1" {{ $blog->is_featured==1 ? 'selected':'' }}>Yes</option>
+
                                                 </select>
                                                 @error('is_featured')
-                                                <div class="text-danger">{{ $message }}</div>
+                                                <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
-                                            <div class="col-sm-6" style="padding-top: 30px">
-                                                <label class="">PDF Title</label>
-                                                <input type="text" class="form-control @error('pdf_title') is-invalid @enderror" name="pdf_title" value="{{ old('pdf_title') }}">
-
-                                                @error('pdf_title')
-                                                <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-
-                                            </div>
-                                            <div class="col-sm-6 mt-2 mt-sm-0" style="padding-top: 30px">
+                                            
+                                            <div class="col-sm-12 mt-2 mt-sm-0" style="padding-top: 30px">
                                             	<label class="">Upload File</label>
                                                 
-	                                            <div class="custom-file">
-	                                                <input type="file" class="custom-file-input @error('pdf_file') is-invalid @enderror" name="pdf_file" value="{{ old('pdf_file') }}">
+	                                            <div class="custom-file" style="padding-bottom: 10px;">
+	                                                <input type="file" class="custom-file-input @error('image') is-invalid @enderror" name="image" value="{{ old('image', $blog->image) }}">
+                                                    
 	                                                <label class="custom-file-label">Choose file</label>
 	                                            </div>
 
-	                                            @error('pdf_file')
-												<div class="text-danger">{{ $message }}</div>
+	                                            @error('image')
+												<div class="invalid-feedback">{{ $message }}</div>
 												@enderror
+
+                                                <a href="" target="_blank">
+                                                        <img src="{{ asset("storage/$blog->image") }}" alt="" width="100px"></a>
                                       
                                             </div>
                                             
 
-                                            <div class="col-sm-12 mt-2 mt-sm-0" style="padding-top: 30px">
-                                            	<label class="">Description</label>
-                                               <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="4" id="description">
-                                               	{!! old('description') !!}
-                                               </textarea>
-
-                                               @error('description')
-												<div class="text-danger">{{ $message }}</div>						
-												@enderror
-                                            </div>
+                                            
                                             
 
                                             <div class="col-sm-12 justify-content" style="padding-top: 35px;">
@@ -90,7 +91,7 @@
                                             <button type="submit" class="btn btn-primary mt-3">Submit</button>
 
 											
-											<a href="{{ route('admin.product.index') }}" class="btn btn-danger mt-3">Cancel</a>
+											<a href="{{ route('admin.blog.index') }}" class="btn btn-danger mt-3">Cancel</a>
 											</center>
                                         	</div>
                                         </div>

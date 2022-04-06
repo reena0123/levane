@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('storage/admin/vendor/owl-carousel/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/admin/vendor/owl-carousel/css/owl.theme.default.min.css') }}">
     <link href="{{ asset('storage/admin/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+     <!-- Datatable -->
+    <link href="{{ asset('storage/admin/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('storage/admin/css/style.css') }}" rel="stylesheet">
 
 

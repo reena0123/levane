@@ -29,7 +29,7 @@
                             
                             <div class="card-body">
 								<div class="table-responsive">
-                                    <table class="table table-bordered table-responsive-sm">
+                                    <table id="example" class="display">
                                         <thead>
                                             <tr>
                                                 <th style="color:#000; font-size:14px;">Id</th>
@@ -44,7 +44,7 @@
                                         <tbody>
                                         	@foreach ($product as $key => $_product)
                                         		
-	                                            <tr>
+	                                            <tr style="color:#837e7e;">
 	                                                <th>{{ ++$key }}</th>
 	                                                <td>{{ $_product->title ?? '' }}</td>
 	                                                <td>{{ $_product->pdf_title ?? '' }}</td>

@@ -56,6 +56,9 @@
     <script src="{{ asset('storage/admin/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
     <script src="{{ asset('storage/admin/vendor/jquery.counterup/jquery.counterup.min.js') }}"></script>
 
+    <!-- Datatable -->
+    <script src="{{ asset('storage/admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('storage/admin/js/plugins-init/datatables.init.js') }}"></script>
 
     <script src="{{ asset('storage/admin/js/dashboard/dashboard-1.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

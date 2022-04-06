@@ -14,7 +14,7 @@ position: relative;
 }
 .testimonial .pic{
 width: 200px;
-/*height: 200px;*/
+/*height: 150px;*/
 border: 5px solid #77a9dd;
 margin: 0 auto;
 position: absolute;
@@ -24,7 +24,7 @@ right: 0;
 }
 .testimonial .pic img{
 width: 100%;
-height: auto;
+height: 140px;
 }
 
 .testimonial .testimonial-profile{
@@ -139,7 +139,9 @@ height: 12px;
                     @foreach ($products as $product)
                         <div class="grid-items">
                             <div class="icon-box shadow rounded-4">
-                                <div class="icon"><i class="fas fa-pills"></i></div>
+                                <div class="icon">
+                                    <a href="{{ route("front.product.detail",$product->id) }}"><i class="fas fa-pills"></i></a>
+                                </div>
                                 <h4><a href="{{ route("front.product.detail",$product->id) }}">{{ $product->title ?? "" }}</a></h4>
                             </div>
                         </div>
@@ -266,48 +268,26 @@ height: 12px;
 
                 </div>
                 <div id="testimonial-slider" class="owl-carousel">
-                <div class="testimonial">
-                    <div class="pic">
-                        <img src="{{ asset('storage/assets/img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="testimonial-profile">
-                        <h3 class="title">williamson</h3>
+                    @foreach ($blogs as $blog)
                         
-                    </div>
-                </div>
+                        <div class="testimonial">
+                            <div class="pic">
+                                <img src="{{ asset("storage/$blog->image") }}" alt="" class="img-fluid">
+                                
+                            </div>
+                            
+                            <div class="testimonial-profile">
+                                <h3 class="title">{{ $blog->name }}</h3>
+                                
+                            </div>
+                        </div>
+
+                    @endforeach
  
-                <div class="testimonial">
-                    <div class="pic">
-                        <img src="{{ asset('storage/assets/img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
-                    </div>
-                   
-                    <div class="testimonial-profile">
-                        <h3 class="title">Kristina</h3>
-                        
-                    </div>
-                </div>
+                
  
-                <div class="testimonial">
-                    <div class="pic">
-                        <img src="{{ asset('storage/assets/img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
-                    </div>
-                   
-                    <div class="testimonial-profile">
-                        <h3 class="title">Steve Thomas</h3>
-                        
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="pic">
-                        <img src="{{ asset('storage/assets/img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="testimonial-profile">
-                        <h3 class="title">Steve Thomas</h3>
-                        
-                    </div>
-                </div>
+                
+                
             </div>
 
             </div>
@@ -326,41 +306,18 @@ height: 12px;
             <div class="container-fluid">
                 <div class="row g-0">
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
-                            </a>
+                    @foreach ($gallery as $_gallery)
+                        <div class="col-lg-3 col-md-6">
+                            <div class="gallery-item">
+                                <a href="{{ asset("storage/$_gallery->images") }}" class="galelry-lightbox">
+                                    <img src="{{ asset("storage/$_gallery->images") }}" alt="" class="img-fluid">
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
+                    
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="assets/img/gallery/gallery-2.jpg" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-7.jpg') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="assets/img/gallery/gallery-3.jpg" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-3.jpg') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="gallery-item">
-                            <a href="assets/img/gallery/gallery-4.jpg" class="galelry-lightbox">
-                                <img src="{{ asset('storage/assets/img/gallery/gallery-4.jpg') }}" alt="" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-
-
-
-
+                    
                 </div>
 
             </div>
